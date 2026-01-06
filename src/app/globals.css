@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text-color: #000000;
+  --secondary-text: #666666;
+  --shadow-color-primary: rgba(0, 0, 0, 0.2);
+  --shadow-color-secondary: rgba(0, 0, 0, 0.15);
+  --shadow-color-strong: rgba(0, 0, 0, 0.3);
+}
+
+:root.dark {
+  --text-color: #ffffff;
+  --secondary-text: #b0b0b0;
+  --shadow-color-primary: rgba(255, 255, 255, 0.2);
+  --shadow-color-secondary: rgba(255, 255, 255, 0.15);
+  --shadow-color-strong: rgba(255, 255, 255, 0.3);
+}
