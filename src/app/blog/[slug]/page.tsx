@@ -7,6 +7,7 @@ import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { ReadingProgressBar } from "@/app/_components/reading-progress-bar";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -20,6 +21,7 @@ export default async function Post(props: Params) {
 
   return (
     <main>
+      <ReadingProgressBar />
       <Container>
         <Header />
         <article className="mb-32">

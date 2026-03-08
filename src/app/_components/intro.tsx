@@ -4,10 +4,12 @@ import Head from "next/head";
 import Logo from './logo';
 import { useTheme } from '@/app/context/ThemeContext';
 import type { CSSProperties } from 'react';
+import { useState } from 'react';
 
 export function Intro() {
 
     const { darkMode } = useTheme();
+    const [navHovered, setNavHovered] = useState(false);
 
     const styles = {
       main: {
@@ -174,15 +176,24 @@ export function Intro() {
           <div style={styles.navLinks as CSSProperties}>
             <a
               href={`/blog`}
-              style={styles.navButton as CSSProperties}
+              style={{
+                ...(styles.navButton as CSSProperties),
+                transform: navHovered ? "scale(1.12) translateY(-4px)" : "scale(1) translateY(0)",
+                opacity: navHovered ? 1 : 0.8,
+                filter: navHovered
+                  ? "drop-shadow(0 6px 16px var(--shadow-color-primary))"
+                  : "drop-shadow(0 0 8px var(--shadow-color-primary))",
+              }}
+              onMouseEnter={() => setNavHovered(true)}
+              onMouseLeave={() => setNavHovered(false)}
             >
               blog
 
-            <svg  style={styles.linkIcon as CSSProperties} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / External_Link"> <path id="Vector" 
-              d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" 
+            <svg  style={styles.linkIcon as CSSProperties} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth={0}></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / External_Link"> <path id="Vector"
+              d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
               stroke={darkMode ? "#ffffffff" : "#000000ff"}
-              stroke-width="2" 
-              stroke-linecap="round" 
+              stroke-width="2"
+              stroke-linecap="round"
               stroke-linejoin="round"></path> </g> </g></svg>
             </a>
           </div>
