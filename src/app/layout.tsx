@@ -7,6 +7,8 @@ import cn from "classnames";
 import "./globals.css";
 import ThemeSwitcher from '@/app/_components/theme-switcher';
 import { ThemeProvider } from '@/app/context/ThemeContext';
+import { CustomCursor } from '@/app/_components/custom-cursor';
+import { SpaceBackground } from '@/app/_components/space-background';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,9 +56,11 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body
-        className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
+        className={cn(inter.className, "bg-white dark:bg-transparent dark:text-slate-400")}
       >
         <ThemeProvider>
+          <SpaceBackground />
+          <CustomCursor />
           <ThemeSwitcher />
           <div className="min-h-screen">{children}</div>
           <Footer />
