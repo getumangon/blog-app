@@ -3,6 +3,8 @@
 import Head from "next/head";
 import Logo from "./logo";
 import { useTheme } from "@/app/context/ThemeContext";
+import { LightBackground } from "@/app/_components/light-background";
+import { ParallaxMesh } from "@/app/_components/parallax-mesh";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 
@@ -144,6 +146,8 @@ export function Intro() {
 
   return (
     <section className="">
+      <LightBackground />
+      <ParallaxMesh />
       <Head>
         <title>Umang.life</title>
         <meta
