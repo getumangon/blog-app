@@ -152,7 +152,7 @@ export function Intro() {
         <title>Umang.life</title>
         <meta
           name="description"
-          content="Umang.life - Portfolio and Projects"
+          content="Umang.life - Portfolio"
         />
         <link rel="icon" href="/favicon.png" />
         <meta property="og:title" content="Umang.life - Portfolio & Projects" />
